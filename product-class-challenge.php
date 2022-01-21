@@ -37,13 +37,13 @@
 
 		private $total_price;
 
-		public function set_shipping(){
+		private function set_shipping(){
 			$this->shipping = $this->weight * $this->shipping_per_ounce;
 		}
 
-		public function get_shipping(){return $this->shipping;}
+		private function get_shipping(){return $this->shipping;}
 
-		public function calc_tax(){return $this->price * $this->tax;}
+		private function calc_tax(){return $this->price * $this->tax;}
 
 		public function total_price(){
 			$this->set_shipping();
