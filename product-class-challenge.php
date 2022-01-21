@@ -6,11 +6,10 @@
 
 		protected $weight;
 
-		public function __construct($title = 'default', $description = 'default', $price = 10, $weight = 10){
+		public function __construct($title = 'default', $description = 'default', $price = 10){
 			$this->title = $title;
 			$this->description = $description;
 			$this->price = $price;
-			$this->weight = $weight;
 		}
 
 		public function set_title($title){$this->title = $title;}
@@ -21,9 +20,9 @@
 		public function get_description(){return $this->description;}
 		public function get_price(){return $this->price;}
 
-		public function set_weight($lbs){
+		protected function set_weight($lbs){
 
-			$ounces = $lbs / 16;
+			$ounces = $lbs * 16;
 
 			$this->weight = $ounces;
 		}
@@ -45,7 +44,8 @@
 
 		private function calc_tax(){return $this->price * $this->tax;}
 
-		public function total_price(){
+		public function total_price($lbs){
+			$this->set_weight($lbs);
 			$this->set_shipping();
 
 			$taxes = $this->calc_tax();
@@ -62,6 +62,6 @@
 		}
 	}
 
-	$playstation = new Product_W_Price('PlayStation', 'Gaming Console', 500, 6);
+	$playstation = new Product_W_Price('PlayStation', 'Gaming Console', 500);
 
-	print_r($playstation->total_price());
+	print_r($playstation->total_price(6));
