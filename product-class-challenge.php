@@ -1,6 +1,7 @@
 <?php
 
 	class Products{
+
 		private $title;
 		private $description;
 
@@ -8,6 +9,7 @@
 		protected $weight;
 
 		public function __construct($title = 'default', $description = 'default', $price = 10){
+
 			$this->title = $title;
 			$this->description = $description;
 			$this->price = $price;
@@ -32,6 +34,7 @@
 	}
 
 	class Product_W_Price extends Products{
+		
 		private $shipping_per_ounce = 0.7;
 		private $shipping;
 
@@ -48,6 +51,7 @@
 		private function calc_tax(){return $this->price * $this->tax;}
 
 		public function total_price($lbs){
+
 			$this->set_weight($lbs);
 			$this->set_shipping();
 
