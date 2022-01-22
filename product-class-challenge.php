@@ -12,10 +12,12 @@
 			$this->price = $price;
 		}
 
+		// setters
 		public function set_title($title){$this->title = $title;}
 		public function set_description($description){$this->description = $description;}
 		public function set_price($price){$this->price = $price;}
 
+		// getters
 		public function get_title(){return $this->title;}
 		public function get_description(){return $this->description;}
 		public function get_price(){return $this->price;}
