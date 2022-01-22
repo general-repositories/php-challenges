@@ -2,8 +2,8 @@
 	class Products{
 		private $title;
 		private $description;
-		protected $price;
 
+		protected $price;
 		protected $weight;
 
 		public function __construct($title = 'default', $description = 'default', $price = 10){
