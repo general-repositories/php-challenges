@@ -39,6 +39,7 @@
 		public function set_price($price){$this->price = $price;}
 		public function set_weight($weight){$this->weight = $weight;}
 
+		// Convert lbs to oz, return error if some other unit is used
 		protected function convert_to_oz(){
 			if($this->weight['units'] != 'oz'){
 				if($this->weight['units'] != 'lbs'){
@@ -55,6 +56,7 @@
 		private $shipping_per_oz = .7;
 		private $tax = .1025;
 
+		// Return the price of shipping
 		private function check_item_shipping(){
 			
 			$this->convert_to_oz();
@@ -62,11 +64,13 @@
 			return $weight['value'] * $this->shipping_per_oz;
 		}
 
+		// Return the items tax based on it's price
 		private function check_item_tax(){
 
 			return $this->get_price() * $this->tax;
 		}
 
+		// Get a list of costs and a total price in an array
 		public function get_price_array(){
 
 			$price_array = array(
