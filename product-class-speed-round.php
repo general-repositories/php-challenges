@@ -51,7 +51,7 @@
 		}
 	}
 
-	class Product_Shipped extends Product{
+	class Cart extends Product{
 
 		private $shipping_per_oz = .7;
 		private $tax = .1025;
@@ -86,7 +86,7 @@
 		}
 	}
 
-	$playstation = new Product_Shipped(array(
+	$playstation = new Cart(array(
 		'title' => 'PlayStation',
 		'description' => 'Gaming Console',
 		'price' => 500,
@@ -102,7 +102,7 @@
 
 	?></pre><?php
 
-	$ddr_machine = new Product_Shipped(array(
+	$ddr_machine = new Cart(array(
 		'title' => 'DDR Machine',
 		'description' => 'Dance Dance Revolution Gaming system',
 		'price' => 1500,
@@ -118,7 +118,7 @@
 
 	?></pre><?php
 
-	$drift_car = new Product_Shipped(array(
+	$drift_car = new Cart(array(
 		'title' => 'Drift Car',
 		'description' => "It's a car for drifting!",
 		'price' => 10000,
