@@ -40,12 +40,12 @@
 		public function set_weight($weight){$this->weight = $weight;}
 
 		protected function convert_to_oz(){
-
 			if($this->weight['units'] != 'oz'){
-				if($this->weight != 'lbs'){
+				if($this->weight['units'] != 'lbs'){
 					return 'error, not pounds or oz';
 				}
-				$this->weight = $this->weight * 16;
+				$this->weight['value'] = $this->weight['value'] * 16;
+				$this->weight['units'] = 'oz';
 			}
 		}
 	}
