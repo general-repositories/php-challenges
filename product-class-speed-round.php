@@ -96,4 +96,36 @@
 
 	print_r($playstation->get_price_array());
 
+	?></pre><?php
+
+	$ddr_machine = new Product_Shipped(array(
+		'title' => 'DDR Machine',
+		'description' => 'Dance Dance Revolution Gaming system',
+		'price' => 1500,
+		'weight' => array(
+			'value' => 500,
+			'units' => 'lbs'
+		)
+	));
+
+	?><pre><?php
+
+	print_r($ddr_machine->get_price_array());
+
+	?></pre><?php
+
+	$drift_car = new Product_Shipped(array(
+		'title' => 'Drift Car',
+		'description' => "It's a car for drifting!",
+		'price' => 10000,
+		'weight' => array(
+			'value' => 2600,
+			'units' => 'lbs'
+		)
+	));
+
+	?><pre><?php
+
+	print_r($drift_car->get_price_array());
+
 	?></pre>
