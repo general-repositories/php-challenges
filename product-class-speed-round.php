@@ -55,10 +55,39 @@
 		private $shipping_per_oz = .7;
 		private $tax = .1025;
 
-		private function set_item_shipping(){
+		private function check_item_shipping(){
 			
 			return $this->get_weight() * $this->shipping_per_oz;
 		}
 
-		
+		private function check_item_tax(){
+
+			return $this->get_price() * $this->tax;
+		}
+
+		public function get_price_array(){
+
+			$price_array = array(
+				'price' => $this->get_price(),
+				'tax' => $this->check_item_tax(),
+				'shipping' => $this->check_item_shipping(),
+				'total' => $this->get_price()
+					+ $this->check_item_tax() 
+					+ $this->check_item_shipping()
+			);
+
+			return $price_array;
+		}
 	}
+
+	$playstation = new Product_Shipped(array(
+		'title' => 'PlayStation',
+		'description' => 'Gaming Console',
+		'price' => 500,
+		'weight' => array(
+			'value' => 6,
+			'units' => 'lbs'
+		)
+	));
+
+	echo $playstation->get_price_array();
