@@ -1,6 +1,6 @@
 <?php
 
-	class Products{
+	class Product{
 
 		private $title;
 		private $description;
@@ -57,7 +57,9 @@
 
 		private function check_item_shipping(){
 			
-			return $this->get_weight() * $this->shipping_per_oz;
+			$this->convert_to_oz();
+			$weight = $this->get_weight();
+			return $weight['value'] * $this->shipping_per_oz;
 		}
 
 		private function check_item_tax(){
@@ -90,4 +92,8 @@
 		)
 	));
 
-	echo $playstation->get_price_array();
+	?><pre><?php
+
+	print_r($playstation->get_price_array());
+
+	?></pre>
