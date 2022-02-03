@@ -41,6 +41,7 @@
 
 		// Convert lbs to oz, return error if some other unit is used
 		protected function convert_to_oz(){
+			
 			if($this->weight['units'] != 'oz'){
 				if($this->weight['units'] != 'lbs'){
 					return 'error, not pounds or oz';
